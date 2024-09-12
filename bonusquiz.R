@@ -1,48 +1,35 @@
-# Binomial
+## 1.Q1
 set.seed(123)
-x <- rbinom(n = 50, size = 6, prob = 0.5)
-mean(x - 3)
-sd(x)
+obs=rbinom(n=100, size=1, prob = 0.7)
+##Q2
+p_hat=sum(obs)/100
+##Q3
+k=qnorm(p=0.975)
+##qnorm is the inverse of the cdf
+##Q4
+lowerp_hat=p_hat-k*sqrt((p_hat*(1-p_hat))/100)
+upperp_hat=p_hat+k*sqrt((p_hat*(1-p_hat))/100)
+##Q5
+##P-hat lies between both lower and upper p-hat values, this means it is not significant data
 
-mean(x - 3)/sd(x)
-x/sd(x)
-
-# Normal
-pnorm(-1.133)
-pnorm(-1.133, lower.tail = F)
-
-mu <- 2
-sigma <- 3
-qnorm(p = 0.6, mean = mu, sd = sigma)
-pnorm(2.760041, mean = mu, sd = sigma)
-
-
-# Vector Operations
-y <- rnorm(60)
-x + y
-
-# Data Overview
-
-
-# Regression
-?lm
-
-ctl <- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
-trt <- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
-group <- gl(2, 10, 20, labels = c("Ctl","Trt"))
-weight <- c(ctl, trt)
-lm.D9 <- lm(weight ~ group)
-
-summary(lm.D9)
-
-data(iris)
-View(iris)
-
-reg <- lm(Sepal.Width ~ ., data = iris)
-summary(reg)
-
-reg <- lm(Sepal.Width ~ Sepal.Length + Petal.Length, data = iris)
-summary(reg)
-
-## References
-XXX
+## 2.Q1
+qtwoone=pnorm(4,mean = 5, sd =sqrt(2) )
+##Q2
+help("pnorm")
+qbetatwo=pnorm(2,mean=5,sd=sqrt(2))
+qtwotwo=qtwoone-qbetatwo
+##Q3
+set.seed(45)
+newobs=rbinom(n=1000, size=, prob = qtwoone)
+##Q4
+meanobs=mean(new_obs)
+## 3.Q1
+install.packages("ggplot2")
+library(ggplot2)
+data("mpg")
+head("mpg")
+##Q2
+fit=lm(mpg$hwy~.,data = mpg)
+##Q3
+summary(fit)
+## The p-value of the linear regression model is 2.2e-16, which I believe means the results are very replicable and this model fits the data well

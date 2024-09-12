@@ -1,4 +1,4 @@
-# Binomial
+## Binomial
 set.seed(123)
 x <- rbinom(n = 50, size = 6, prob = 0.5)
 mean(x - 3)
